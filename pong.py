@@ -37,6 +37,38 @@ ball.color("yellow")
 ball.penup()
 ball.goto(0, 0)
 
+
+
+
+# Functions For Movement
+
+
+def paddle_a_up():
+    y=paddle_a.ycor()  # It returns The Y y coordinate
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # Main Loop for the game
 while True:
     wn.update()
