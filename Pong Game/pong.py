@@ -36,8 +36,8 @@ ball.penup()
 ball.goto(0, 0)
 
 # Every Time The Ball Moves It Moves By 0.3 Pixels
-ball.dx = 0.3
-ball.dy = 0.3
+ball.dx = 0.2
+ball.dy = 0.2
 
 
 # Functions for Paddel Movements
@@ -99,4 +99,12 @@ while True:
 
     if ball.xcor() < -390:
         ball.setx(-390)
+        ball.dx *= -1
+
+    # Paddle And Ball COllisions Just Play Around with The Coordinates Till You Get it Right
+
+    if ball.xcor() > 340 and ball.xcor() < 350 and ball.ycor() < paddle_b.ycor() + 40 and ball.ycor() > paddle_b.ycor() - 40:
+        ball.dx *= -1
+
+    if ball.xcor() < - 340 and ball.xcor() > -350 and ball.ycor() < paddle_a.ycor() + 40 and ball.ycor() > paddle_a.ycor() - 40:
         ball.dx *= -1
