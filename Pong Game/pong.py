@@ -39,6 +39,20 @@ ball.goto(0, 0)
 ball.dx = 0.2
 ball.dy = 0.2
 
+# Score
+
+score_a = 0
+score_b = 0
+# Score Board Development
+
+pen = turtle.Turtle()
+pen.speed(0)  # Animation Speed
+pen.color("white")
+pen.penup()  # Do not want to draw lines after the turtle moves
+pen.hideturtle()
+pen.goto(0, 260)
+pen.write(f"Player A: {score_a}  Player B: {score_b}", align="center", font=("Courier", 24, "normal"))
+
 
 # Functions for Paddel Movements
 
@@ -104,7 +118,15 @@ while True:
     # Paddle And Ball COllisions Just Play Around with The Coordinates Till You Get it Right
 
     if ball.xcor() > 340 and ball.xcor() < 350 and ball.ycor() < paddle_b.ycor() + 40 and ball.ycor() > paddle_b.ycor() - 40:
+        ball.setx(340)
         ball.dx *= -1
+        score_b += 1
+        pen.clear()
+        pen.write(f"Player A: {score_a}  Player B: {score_b}", align="center", font=("Courier", 24, "normal"))
 
     if ball.xcor() < - 340 and ball.xcor() > -350 and ball.ycor() < paddle_a.ycor() + 40 and ball.ycor() > paddle_a.ycor() - 40:
+        ball.setx(-340)
         ball.dx *= -1
+        score_a += 1
+        pen.clear()
+        pen.write(f"Player A: {score_a}  Player B: {score_b}", align="center", font=("Courier", 24, "normal"))
